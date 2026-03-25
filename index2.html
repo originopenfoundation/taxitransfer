@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxiTransfer Prešov</title>
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+
+<body>
+
+<header class="main-header">
+<div class="logo-container">
+<img src="992D6285-4A4B-4961-A567-D3881BAECD4A.PNG" alt="TaxiTransfer Logo" class="logo logo-anim">
+<span class="brand-name">TaxiTransfer</span>
+</div>
+
+<nav class="navbar">
+<a href="#uvod" class="navbar-link">Úvod</a>
+<a href="#sluzby" class="navbar-link">Služby</a>
+<a href="#cennik" class="navbar-link">Cenník</a>
+<a href="#kontakt" class="navbar-link">Kontakt</a>
+<a href="#rezervacia" class="navbar-link">Rezervácia</a>
+</nav>
+
+<div class="menu-toggle" id="menu-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<!-- HERO / ÚVOD -->
+<section id="uvod" class="hero">
+<div class="hero-content">
+<h1>TaxiTransfer Prešov</h1>
+<p><strong>Komfort, spoľahlivosť a štýl na každej ceste</strong></p>
+<p>Vitajte v TaxiTransfer Prešov – vašom spoľahlivom partnerovi pre pohodlné a bezpečné cestovanie.</p>
+<a href="#rezervacia" class="btn-gold">Rezervovať jazdu</a>
+</div>
+</section>
+
+<!-- SLUŽBY -->
+<section id="sluzby" class="services">
+<h2 class="section-title">Služby</h2>
+
+<div class="service-cards">
+
+<div class="service-card">
+<i class="fas fa-plane fa-2x"></i>
+<h3>Letiskové transfery</h3>
+<p>Spoľahlivý odvoz z a na letiská v celej SR aj zahraničí.</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-route fa-2x"></i>
+<h3>Medzimestská doprava</h3>
+<p>Cestujte bezpečne a pohodlne po Slovensku aj do zahraničia.</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-city fa-2x"></i>
+<h3>Mestské taxi</h3>
+<p>Rýchly a spoľahlivý odvoz v rámci Prešova.</p>
+</div>
+
+<div class="service-card">
+<i class="fas fa-briefcase fa-2x"></i>
+<h3>Firemné transfery</h3>
+<p>Spoľahlivý servis pre vaše pracovné cesty.</p>
+</div>
+
+</div>
+</section>
+
+<!-- CENNÍK -->
+<section id="cennik" class="services">
+<h2 class="section-title">Cenník</h2>
+
+<table class="price-table">
+<tr><th>Trasa</th><th>Cena od</th></tr>
+<tr><td>Prešov – Letisko Košice</td><td>50 €</td></tr>
+<tr><td>Prešov – Bratislava</td><td>220 €</td></tr>
+<tr><td>Prešov – Poprad</td><td>80 €</td></tr>
+</table>
+
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="services">
+<h2 class="section-title">Kontakt</h2>
+
+<p style="text-align:center;">
+📞 +421 123 456 789<br>
+📧 info@taxitransfer.sk
+</p>
+</section>
+
+<!-- REZERVÁCIA -->
+<section id="rezervacia">
+<h2 class="section-title">Rezervácia jazdy</h2>
+
+<form id="rezervacia-form" action="https://formspree.io/f/meepjygz" method="POST" class="contact-form">
+
+<input type="text" name="Meno a priezvisko" placeholder="Meno a priezvisko" required>
+<input type="tel" name="Telefón" placeholder="Telefón" required>
+<input type="email" name="Email" placeholder="E-mail">
+
+<input type="text" name="Miesto nástupu" placeholder="Odkiaľ" required>
+<input type="text" name="Cieľ cesty" placeholder="Kam" required>
+
+<input type="datetime-local" name="Dátum" required>
+
+<select name="Počet osôb" required>
+<option disabled selected>Počet osôb</option>
+<option>1</option><option>2</option><option>3</option>
+<option>4</option><option>5</option><option>6</option>
+<option>7</option><option>8</option>
+</select>
+
+<select name="Typ služby" required>
+<option disabled selected>Typ služby</option>
+<option>Mestské taxi</option>
+<option>Letiskový transfer</option>
+<option>Medzimestský transfer</option>
+<option>Firemný transfer</option>
+</select>
+
+<textarea name="Poznámka" placeholder="Poznámka"></textarea>
+
+<div class="form-actions">
+<button type="submit" class="btn-gold">Odoslať rezerváciu</button>
+<button type="reset" class="btn-silver">Vymazať</button>
+</div>
+
+</form>
+<div id="potvrdenie" style="display:none; text-align:center; margin-top:2rem;">
+            <div style="background:#181818; border:2px solid #bfa046; border-radius:12px; padding:2rem; max-width:500px; margin:0 auto; color:#C0C0C0;">
+                <h2 style="color:#bfa046;">Ďakujeme za vašu rezerváciu!</h2>
+                <p>Čoskoro vás budeme kontaktovať na uvedený telefón alebo e-mail.</p>
+                <p style="font-style:italic; color:#C0C0C0;">(voliteľne môže ísť kópia aj na e-mail zákazníka)</p>
+            </div>
+        </div>
+    </section>
+</section>
+<script>
+document.getElementById('rezervacia-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var form = this;
+    var data = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+        if (response.ok) {
+            form.reset();
+            form.style.display = 'none';
+            document.getElementById('potvrdenie').style.display = 'block';
+        } else {
+            response.json().then(data => {
+                alert("Chyba: " + (data.error || "Nepodarilo sa odoslať"));
+            });
+        }
+    })
+    .catch(function() {
+        alert('Chyba pripojenia');
+    });
+});
+</script>
+</section>
+
+<script src="app.js"></script>
+
+
+</body>
+</html>

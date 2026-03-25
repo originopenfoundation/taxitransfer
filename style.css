@@ -1,0 +1,402 @@
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:#C0C0C0;
+    line-height:1.6;
+}
+
+/* ================= HEADER ================= */
+.main-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 2rem;
+    background:#111;
+    border-bottom:2px solid #bfa046;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:45px;
+}
+
+.brand-name{
+    color:#bfa046;
+    font-weight:bold;
+    font-size:1.4rem;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    display:flex;
+    gap:1.5rem;
+}
+
+.navbar-link{
+    color:#C0C0C0;
+    text-decoration:none;
+    position:relative;
+    transition:0.3s;
+}
+
+.navbar-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#bfa046;
+    transition:0.3s;
+}
+
+.navbar-link:hover{
+    color:#bfa046;
+}
+
+.navbar-link:hover::after{
+    width:100%;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    z-index:1100;
+}
+
+.menu-toggle span{
+    width:28px;
+    height:3px;
+    background:#bfa046;
+    transition:0.4s;
+}
+
+/* X animácia */
+.menu-toggle.active span:nth-child(1){
+    transform:rotate(45deg) translate(6px,6px);
+}
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+.menu-toggle.active span:nth-child(3){
+    transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* ================= OVERLAY ================= */
+.menu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(6px);
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+    z-index:900;
+}
+
+.menu-overlay.active{
+    opacity:1;
+    pointer-events:all;
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:1rem;
+
+    background:
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85)),
+    url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad') center/cover no-repeat;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:3rem;
+    color:#bfa046;
+    margin-bottom:1rem;
+}
+
+.hero p{
+    margin-bottom:0.7rem;
+}
+
+/* tlačidlo */
+.btn-gold{
+    background:#bfa046;
+    color:#000;
+    padding:0.8rem 2rem;
+    border-radius:30px;
+    margin-top:2rem;
+    display:inline-block;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-gold:hover{
+    transform:translateY(-3px);
+    background:#d4b85b;
+}
+
+/* ================= SEKCIE ================= */
+.services{
+    padding:4rem 2rem;
+}
+
+.section-title{
+    text-align:center;
+    color:#bfa046;
+    font-size:2rem;
+    margin-bottom:2rem;
+}
+
+/* ================= KARTY ================= */
+.service-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:2rem;
+}
+
+.service-card{
+    background:#181818;
+    padding:2rem;
+    border-radius:15px;
+    border:1px solid rgba(191,160,70,0.3);
+    text-align:center;
+    transition:0.3s;
+}
+
+.service-card i{
+    color:#bfa046;
+    margin-bottom:1rem;
+}
+
+.service-card h3{
+    margin-bottom:0.7rem;
+    color:#fff;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(191,160,70,0.4);
+}
+
+/* ================= CENNÍK ================= */
+.price-table{
+    width:100%;
+    max-width:600px;
+    margin:0 auto;
+    border-collapse:collapse;
+    background:#181818;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.price-table th{
+    background:#bfa046;
+    color:#000;
+    padding:1rem;
+}
+
+.price-table td{
+    padding:1rem;
+    border-bottom:1px solid #333;
+}
+
+.price-table tr:hover{
+    background:rgba(191,160,70,0.1);
+}
+
+/* ================= FORM ================= */
+.contact-form{
+    max-width:600px;
+    margin:2rem auto;
+    background:#181818;
+    padding:2rem;
+    border-radius:15px;
+    border:1px solid #bfa046;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+    width:100%;
+    padding:0.7rem;
+    margin-bottom:1rem;
+    background:#0f0f0f;
+    border:1px solid #bfa046;
+    color:#fff;
+    border-radius:8px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+    outline:none;
+    border-color:#d4b85b;
+}
+
+.form-actions{
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+}
+
+.btn-silver{
+    background:#555;
+    color:#fff;
+    padding:0.7rem 1.5rem;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.btn-silver:hover{
+    background:#777;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    .navbar{
+        position:fixed;
+        top:0;
+        right:0;
+        height:100vh;
+        width:75%;
+        max-width:300px;
+        background:#111;
+        flex-direction:column;
+        padding:6rem 2rem;
+        transform:translateX(100%);
+        transition:0.4s;
+        z-index:1000;
+    }
+
+    .navbar.active{
+        transform:translateX(0);
+    }
+
+    .navbar-link{
+        font-size:1.3rem;
+        border-bottom:1px solid #333;
+        padding:0.6rem 0;
+    }
+
+    .hero h1{
+        font-size:2rem;
+    }
+}
+
+/* Formulár - základ */
+.contact-form {
+    background: #181818;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #C0C0C0;
+    font-family: Arial, sans-serif;
+}
+
+/* Všetky inputy a textarea */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #bfa046;
+    border-radius: 8px;
+    background: #181818;
+    color: #fff; /* text biely */
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Placeholder biely */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #C0C0C0;
+}
+
+/* Select a ikonky (dropdown, datetime) */
+.contact-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #181818 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E") no-repeat right 1rem center;
+    background-size: 1rem;
+}
+
+/* Dátum a čas (datetime-local) */
+.contact-form input[type="datetime-local"] {
+    color: #fff; /* text biely */
+    border: 1px solid #bfa046;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    background: #181818;
+}
+
+/* Pre Chrome / Edge - dátumová ikonka biela */
+.contact-form input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* zmení ikonu na bielu */
+    cursor: pointer;
+}
+
+/* Tlačidlá */
+.contact-form .btn-gold {
+    background-color: #bfa046;
+    color: #181818;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact-form .btn-silver {
+    background-color: #C0C0C0;
+    color: #181818;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Potvrdenie */
+#potvrdenie h2 {
+    margin-bottom: 1rem;
+}
+#potvrdenie p {
+    font-size: 1rem;
+}
